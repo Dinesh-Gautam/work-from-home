@@ -1,0 +1,251 @@
+@use "../util" as *;
+
+$dark-background: #101010;
+
+.container {
+  max-width: 1330px;
+  padding: 2rem;
+  @include tablet {
+    padding: 2rem;
+  }
+}
+section {
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-color: $dark-background;
+    color: white;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0px 2px 32px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+  .hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50vh;
+    flex-direction: column;
+    background: url(../assets/background-vector.svg);
+    background-size: 200vh;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    .container {
+      width: 100%;
+      //   height: 100%;
+      flex: 1;
+    }
+  }
+}
+
+.container,
+.sm-links {
+  position: relative;
+  z-index: 100;
+}
+
+.heading-container,
+.message-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading-container {
+  gap: 6rem;
+  @include tablet {
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 5vh;
+  }
+}
+
+.message-container {
+  margin-top: 0px;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr 1fr;
+  align-content: center;
+  justify-items: center;
+  height: 100%;
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10% 1fr;
+  }
+}
+
+.or-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 2/3;
+  @include tablet {
+    flex-direction: row;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  span {
+    margin: 10px 0;
+    @include tablet {
+      margin: 0 10px;
+    }
+  }
+}
+
+.line {
+  height: 10vh;
+  width: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+  @include tablet {
+    width: 20vw;
+    height: 2px;
+  }
+}
+
+.pn-container,
+.form-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+
+  @include tablet {
+    grid-template-rows: 0.2fr 1fr;
+  }
+}
+.pn-container {
+  .info {
+    span {
+      letter-spacing: 10px;
+      @include tablet {
+        letter-spacing: 5 px;
+      }
+    }
+  }
+}
+
+a {
+  background-color: $dark-background;
+  color: white;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  @include tablet {
+    padding: 2vh 2rem;
+  }
+}
+
+.sm-links {
+  //   position: relative;
+  //   bottom: 2rem;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  margin-bottom: 2rem;
+  color: $dark-background;
+  display: flex;
+  gap: 4rem;
+  a {
+    background: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  @include tablet {
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.info-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.circle-background {
+  z-index: 1;
+  pointer-events: none;
+  //   width: 762px;
+  //   height: 762px;
+  width: 70vh;
+  height: 70vh;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(
+    171.16deg,
+    rgba(255, 0, 0, 0.8) 7.55%,
+    rgba(255, 0, 76, 0.8) 19.22%,
+    rgba(255, 0, 138, 0.8) 31.76%,
+    rgba(219, 0, 255, 0.8) 56.4%,
+    rgba(167, 0, 255, 0.8) 73.25%,
+    rgba(112, 0, 255, 0.8) 90.54%
+  );
+  filter: blur(10vh);
+  //   opacity: 0.8;
+  &.first {
+    left: 0;
+    top: 50%;
+    transform: translate(-60%, -70%);
+  }
+  &.second {
+    bottom: 0;
+    right: 0;
+    transform: translate(60%, 70%);
+  }
+
+  @include tablet {
+    width: 40vh;
+    height: 40vh;
+    filter: blur(5vh);
+  }
+}
+
+object {
+  display: inline-block;
+  background-size: cover;
+  pointer-events: none;
+  @include tablet {
+    transform-origin: center;
+    transform: scale(0.8);
+  }
+}
+
+.follow-mouse {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  // background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  backdrop-filter: invert(1) saturate(0) contrast(2);
+  pointer-events: none;
+
+  @include tablet {
+    display: hidden;
+  }
+}
+
+.noise-texture {
+  height: 50vh;
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+  mix-blend-mode: soft-light;
+  opacity: 0.8;
+}

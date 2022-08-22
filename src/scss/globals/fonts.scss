@@ -1,0 +1,37 @@
+@use "../util" as *;
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Poppins:wght@400;500;700&display=swap");
+
+$font-default: "Poppins", sans-serif;
+$font-secondary: "Courgette", sans-serif;
+$font-size-default: 28px;
+$font-size-heading: 130px;
+body,
+span {
+  font-family: $font-default;
+  // font-size: $font-size-default;
+  font-weight: 500;
+  font-size: clamp(16px, 2vw, 28px);
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(64px, 8vw, 130px);
+  font-weight: bold;
+  line-height: 200px;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  justify-items: center;
+  @include tablet {
+    line-height: 10vh;
+  }
+}
+h2 {
+  // font-size: $font-size-default;
+  font-weight: inherit;
+  font-size: clamp(16px, 2vw, 28px);
+}
+.heading-secondary {
+  font-family: $font-secondary;
+  font-weight: normal;
+}

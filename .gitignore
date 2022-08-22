@@ -1,0 +1,5 @@
+*.xd
+
+node_modules/
+dist/
+design/
