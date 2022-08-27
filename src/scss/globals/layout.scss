@@ -249,12 +249,5 @@ svg {
   z-index: 2;
   mix-blend-mode: soft-light;
   opacity: 0.7;
-  object {
-    width: 100%;
-    transform: scale(1) !important;
-    @include tablet {
-      height: 100%;
-      width: initial;
-    }
-  }
+  background: url(../../../assets/noise_texture.png);
 }
