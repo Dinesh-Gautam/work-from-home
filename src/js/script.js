@@ -43,4 +43,8 @@ function main() {
   animateMouse();
 }
 
+// document
+//   .querySelectorAll("object")
+//   .forEach((e) => (e.style.overflow = "hidden"));
+
 init();
