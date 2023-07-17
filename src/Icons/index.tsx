@@ -21,9 +21,9 @@ export function InstagramIcon() {
   </svg>
   }
 
-export function ContactIcon(props) {
+export function ContactIcon(props : any) {
     return  <CallIcon {...props} />
 }
-export function FormIcon(props) {
+export function FormIcon(props : any) {
   return  <FeedIcon {...props} />
 }

@@ -3,7 +3,6 @@ import "../styles/style.scss"
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Head from "next/head"
-import Script from "next/script"
 
 const poppins = Poppins({ subsets : ['latin'] , weight: ["400" , "500" , "700"] })
 

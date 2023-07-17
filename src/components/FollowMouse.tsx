@@ -2,9 +2,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 function FollowMouse() {
-    const divRef   = useRef(null);
+    const divRef   = useRef<HTMLDivElement | null>(null);
     const mousePosition = { x : 0 ,  y : 0,}
-    const intervaleRef = useRef(null);
+    const intervaleRef = useRef<number | null>(null);
+
+    const  updateElementPosition: TimerHandler = () =>  {
+        const div = divRef.current;
+        if(div === null) return;
+        div.style.opacity = "1";
+        div.style.transform = `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
+      }
+
+
     useEffect(() => {
       const handleMouseMove = (event : MouseEvent) => {
         const { clientX, clientY } = event;
@@ -20,16 +29,11 @@ function FollowMouse() {
           mousePosition.x = mouseX;
           mousePosition.y = mouseY;
           
-          if(intervaleRef.current === null ) intervaleRef.current = setInterval(updateElementPosition , 50);
+          if(intervaleRef.current === null ) intervaleRef.current = window.setInterval(updateElementPosition , 50);
         }
       };
   
-      function updateElementPosition() {
-        const div = divRef.current;
-        div.style.opacity = 1;
-        div.style.transform = `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
-      }
-
+  
     
 
       document.addEventListener('mousemove', handleMouseMove);
@@ -37,7 +41,9 @@ function FollowMouse() {
       return () => {
           document.removeEventListener('mousemove', handleMouseMove);
           console.log("clearing interval")
-        clearInterval(intervaleRef.current);
+          if(intervaleRef.current !== null) {
+              window.clearInterval(intervaleRef.current);
+          }
       };
     }, []);
   
