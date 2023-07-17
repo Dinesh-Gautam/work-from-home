@@ -16,7 +16,7 @@ export default function Home() {
 }
 
 function HeroBottom() {
-  const phoneNumber: Number = 9780460081;
+  const phoneNumber: Number = 8557060081;
   const socialMediaLinks = [
     {
       name : "Instagram" ,
@@ -37,9 +37,11 @@ function HeroBottom() {
             <h2>Contact Us</h2>
           </div>
           <div className="info">
+           
             <a href={"tel:+" + phoneNumber}>
               <span>+91 {formatPhoneNumber(phoneNumber)}</span>
             </a>
+           
           </div>
         </div>
         <div className="or-container">
@@ -55,12 +57,10 @@ function HeroBottom() {
             <h2>Fill the Form</h2>
           </div>
           <div className="info">
-            <div className="link">
               <a target="_blank"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfLl-xhJ-2-YZ8zRByZPsae_6jldLKct_suJNIjKBgwNFZwsA/viewform">
                 Google Form
               </a>
-            </div>
           </div>
         </div>
       </div>

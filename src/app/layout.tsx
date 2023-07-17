@@ -1,7 +1,9 @@
+import GoogleAnalytics from "@/components/GoogleAnalytics"
 import "../styles/style.scss"
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Head from "next/head"
+import Script from "next/script"
 
 const poppins = Poppins({ subsets : ['latin'] , weight: ["400" , "500" , "700"] })
 
@@ -19,8 +21,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head> </Head>
-      <body className={poppins.className}>{children}</body>
+      <Head>
+        <meta name="google-site-verification" content="gxWOfw2GbQ4PsAxkoY_nnZPzpVO16xWWjhFsEdzQNTk" />  
+      </Head>
+      <body className={poppins.className}>{children}
+      <GoogleAnalytics />
+    
+      </body>
     </html>
   )
 }
