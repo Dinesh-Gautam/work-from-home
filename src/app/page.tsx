@@ -1,5 +1,6 @@
 import { ContactIcon, FormIcon, InstagramIcon } from "@/Icons";
 import FollowMouse from "@/components/FollowMouse";
+import { formatPhoneNumber } from "@/utils";
 
 export default function Home() {
   return (
@@ -16,12 +17,13 @@ export default function Home() {
 
 function HeroBottom() {
   const phoneNumber: Number = 9780460081;
-
-  function formatPhoneNumber(phoneNo: Number): String {
-    const stringPhoneNo = phoneNo.toString();
-    const splitPhoneNo = [stringPhoneNo.slice(0, 4), stringPhoneNo.slice(5, stringPhoneNo.length)].join("-");
-    return splitPhoneNo;
-  }
+  const socialMediaLinks = [
+    {
+      name : "Instagram" ,
+      link :  "https://www.instagram.com/gurdeepsingh_003/",
+      Icon : () => <InstagramIcon />
+    }
+  ]
 
   return <div className="hero-bottom">
     <div className="container">
@@ -29,7 +31,7 @@ function HeroBottom() {
         <div className="pn-container">
           <div className="info-header">
             <div className="icon">
-              <ContactIcon />
+              <ContactIcon fontSize="large" />
 
             </div>
             <h2>Contact Us</h2>
@@ -48,14 +50,9 @@ function HeroBottom() {
         <div className="form-container">
           <div className="info-header">
             <div className="icon">
-                <FormIcon />
-
-              {/* <object style={{
-                marginTop: -4,
-              }} type="image/svg+xml" data="/form-icon.svg"
-              ></object> */}
+                <FormIcon fontSize="large" />
             </div>
-            <h2>Fill the From</h2>
+            <h2>Fill the Form</h2>
           </div>
           <div className="info">
             <div className="link">
@@ -69,17 +66,13 @@ function HeroBottom() {
       </div>
     </div>
     <div className="sm-links">
-      {/* <a title="facebook" href=""><object type="image/svg+xml" data="./assets/fb-logo.svg" alt="facebook">
-                </object></a> */}
-      <a title="instagram" href="https://www.instagram.com/gurdeepsingh_003/" target="_blank">
-        {/* <object
-        type="image/svg+xml" data="./assets/insta-logo.svg" alt="instagram"></object>  */}
-        <InstagramIcon />
-      </a>
-      {/* <a title="twitter" href=""><object type="image/svg+xml" data="./assets/twitter-logo.svg" alt="twitter">
-                </object></a>
-            <a title="youtube" href=""><object type="image/svg+xml" data="./assets/yt-logo.svg" alt="youtube">
-                </object></a>  */}
+      {
+        socialMediaLinks.map(({name , link , Icon} , index) => (
+          <a key={index} title={name} href={link} target="_blank">
+          <Icon />
+        </a>
+        ))
+      }
     </div>
   </div>
 }
