@@ -17,7 +17,7 @@ export default function Home() {
 
 function HeroBottom() {
   const phoneNumber: Number = 8557060081;
-  const socialMediaLinks = [
+  const socialMediaLinks : any = [
     // {
     //   name : "Instagram" ,
     //   link :  "https://www.instagram.com/gurdeepsingh_003/",
