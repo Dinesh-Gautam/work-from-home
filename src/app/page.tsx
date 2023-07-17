@@ -67,11 +67,11 @@ function HeroBottom() {
     </div>
     <div className="sm-links">
       {
-        socialMediaLinks.map(({ name, link, Icon }, index) => (
-          <a key={index} title={name} href={link} target="_blank">
-            <Icon />
-          </a>
-        ))
+        // socialMediaLinks.map(({ name, link, Icon }, index) => (
+        //   <a key={index} title={name} href={link} target="_blank">
+        //     <Icon />
+        //   </a>
+        // ))
       }
     </div>
   </div>
