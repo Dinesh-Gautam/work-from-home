@@ -222,6 +222,7 @@ svg {
 }
 
 .follow-mouse {
+  opacity: 0;
   height: 100px;
   width: 100px;
   border-radius: 50%;
@@ -236,7 +237,7 @@ svg {
   pointer-events: none;
   transition: all 100ms linear;
   @include tablet {
-    display: hidden;
+    display: none;
   }
 }
 

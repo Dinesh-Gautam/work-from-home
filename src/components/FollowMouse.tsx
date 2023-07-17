@@ -19,16 +19,18 @@ function FollowMouse() {
     
           mousePosition.x = mouseX;
           mousePosition.y = mouseY;
-          // Set the new position of the div
+          
+          if(intervaleRef.current === null ) intervaleRef.current = setInterval(updateElementPosition , 50);
         }
       };
   
       function updateElementPosition() {
         const div = divRef.current;
+        div.style.opacity = 1;
         div.style.transform = `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
       }
 
-      intervaleRef.current = setInterval(updateElementPosition , 50);
+    
 
       document.addEventListener('mousemove', handleMouseMove);
       
