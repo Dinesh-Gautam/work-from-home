@@ -82,7 +82,7 @@ $animation-delay: 0.2s;
 }
 
 .hero-top {
-  will-change: height;
+  will-change: transform;
   animation: 2s cubic-bezier(0.3, 0, 0, 1)
     ($div-count * $animation-delay + 1.5s) forwards revealAnimation;
 }
