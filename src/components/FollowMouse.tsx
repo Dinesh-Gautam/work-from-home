@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react'
 
+const disableWidth = 820;
+
 function FollowMouse() {
     const divRef   = useRef<HTMLDivElement | null>(null);
     const mousePosition = { x : 0 ,  y : 0, scale : 0,}
@@ -8,13 +10,14 @@ function FollowMouse() {
 
     const  updateElementPosition: TimerHandler = () =>  {
         const div = divRef.current;
-        if(div === null) return;
+        if(div === null || window.innerWidth < disableWidth) return;
         div.style.opacity = "1";
         div.style.transform = `translate(${mousePosition.x}px, ${mousePosition.y}px) scale(${mousePosition.scale})`;
       }
 
 
     useEffect(() => {
+      if(window.innerWidth < disableWidth) return;
       const handleMouseMove = (event : MouseEvent) => {
         const { clientX, clientY } = event;
         const div = divRef.current;
